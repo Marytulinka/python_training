@@ -45,6 +45,7 @@ class TestAddGroup(unittest.TestCase):
     def open_groups_page(self, wd):
         wd.find_element_by_link_text("groups").click()
 
+
     def login(self, wd, username, password):
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)

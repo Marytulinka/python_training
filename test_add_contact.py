@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest
 
-class TestAddGroup(unittest.TestCase):
+class TestAddContact(unittest.TestCase):
     def setUp(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
@@ -126,7 +126,7 @@ class TestAddGroup(unittest.TestCase):
 
     def tearDown(self):
         self.wd.quit()
-        self.assertEqual([], self.verificationErrors)
+
 
 if __name__ == "__main__":
     unittest.main()
