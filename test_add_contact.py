@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest
-from models import contact
+from models import Contact
 
 class TestAddContact(unittest.TestCase):
     def setUp(self):
@@ -16,8 +16,8 @@ class TestAddContact(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, "admin", "secret")
         self.open_new_contact_page(wd)
-        self.create_new_contact(wd, contact("Tulina", "", "Maria",
-                                                 "MaryTulina", "company",
+        self.create_new_contact(wd, Contact("Tulina", "", "Maria",
+                                                 "marytulina", "company",
                                                  "title", "Test test test", "7656567",
                                                  "123456", "432156", "587645",
                                                  "test@test.com","test2@test.com", "test3@test.com",
