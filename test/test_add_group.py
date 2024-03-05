@@ -12,9 +12,9 @@ def app(request):
 
 
 def test_add_group(app):
-    app.login("admin", "secret")
+    app.session.login("admin", "secret")
     app.create_group(Group("тест", "тест", "тест"))
-    app.logout()
+    app.session.logout()
 
 
 
