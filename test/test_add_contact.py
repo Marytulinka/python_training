@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pytest
-from models import Contact
-from contactdate import Contactdate
+from model.models import Contact
+from fixture.contactdate import Contactdate
 
 
 @pytest.fixture
