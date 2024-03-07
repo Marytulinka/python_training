@@ -78,6 +78,7 @@ class ContactHelper:
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
         wd.find_element_by_name("ayear").send_keys("2028")
+        wd.find_element_by_xpath("//div[@id='content']/form/input[20]").click()
         self.go_to_home_page(wd)
 
     def go_to_home_page(self, wd):
