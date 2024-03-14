@@ -9,6 +9,8 @@ def test_edit_contact(app):
                                        "marytulina", "COMPANY",
                                        "TITLE", "Test test test", "7656567",
                                        "123456", "", "",
-                                       "test@test.com", "", "", ""))
+                                       "test@test.com", "", "", "",
+                                       "20", "May", "1989",
+                                       "20", "May", "2029"))
     app.session.logout()
     time.sleep(3)

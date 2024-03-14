@@ -10,6 +10,8 @@ def test_add_contact(app):
                                        "title", "Test test test", "7656567",
                                        "123456", "432156", "587645",
                                        "test@test.com", "test2@test.com", "test3@test.com",
-                                       "homepage"))
+                                       "homepage",
+                                       "19", "April", "1988",
+                                       "19", "April", "2028"))
     app.session.logout()
     time.sleep(3)

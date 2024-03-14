@@ -10,26 +10,6 @@ class ContactHelper:
         wd = self.app.wd
         self.open_new_contact_page()
         self.fill_contact_form(contact)
-        # Birthday
-        wd.find_element_by_name("bday").click()
-        Select(wd.find_element_by_name("bday")).select_by_visible_text("12")
-        wd.find_element_by_xpath("//option[@value='12']").click()
-        wd.find_element_by_name("bmonth").click()
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text("December")
-        wd.find_element_by_xpath("//option[@value='December']").click()
-        wd.find_element_by_name("byear").click()
-        wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys("1988")
-        wd.find_element_by_name("aday").click()
-        Select(wd.find_element_by_name("aday")).select_by_visible_text("12")
-        wd.find_element_by_xpath("//div[@id='content']/form/select[3]/option[14]").click()
-        wd.find_element_by_name("amonth").click()
-        Select(wd.find_element_by_name("amonth")).select_by_visible_text("December")
-        wd.find_element_by_xpath("//div[@id='content']/form/select[4]/option[13]").click()
-        wd.find_element_by_name("ayear").click()
-        wd.find_element_by_name("ayear").clear()
-        wd.find_element_by_name("ayear").send_keys("2028")
-        wd.find_element_by_xpath("//div[@id='content']/form/input[20]").click()
         self.return_to_home_page()
 
     def fill_contact_form(self, contact):
@@ -47,6 +27,10 @@ class ContactHelper:
         wd.find_element_by_name("nickname").click()
         wd.find_element_by_name("nickname").clear()
         wd.find_element_by_name("nickname").send_keys(contact.nickname)
+        # Photo
+        # wd.find_element_by_xpath("//input[@type='file']").click()
+        # wd.find_element_by_name("photo").clear()
+        # wd.find_element_by_xpath("//input[@type='file']").send_keys("C://Users//Mariya.Tulina//PycharmProjects//python_training//icon.jpg")
         # Company
         wd.find_element_by_name("company").click()
         wd.find_element_by_name("company").clear()
@@ -72,7 +56,6 @@ class ContactHelper:
         wd.find_element_by_name("fax").send_keys(contact.fax)
         # email
         wd.find_element_by_name("email").click()
-        wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys(contact.email1)
         wd.find_element_by_name("email2").click()
@@ -84,6 +67,22 @@ class ContactHelper:
         wd.find_element_by_name("homepage").click()
         wd.find_element_by_name("homepage").clear()
         wd.find_element_by_name("homepage").send_keys(contact.homepage)
+        # Birthday
+        wd.find_element_by_name("bday").click()
+        Select(wd.find_element_by_name("bday")).select_by_visible_text(contact.bday)
+        wd.find_element_by_name("bmonth").click()
+        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.bmonth)
+        wd.find_element_by_name("byear").click()
+        wd.find_element_by_name("byear").clear()
+        wd.find_element_by_name("byear").send_keys(contact.byear)
+        wd.find_element_by_name("aday").click()
+        Select(wd.find_element_by_name("aday")).select_by_visible_text(contact.aday)
+        wd.find_element_by_name("amonth").click()
+        Select(wd.find_element_by_name("amonth")).select_by_visible_text(contact.amonth)
+        wd.find_element_by_name("ayear").click()
+        wd.find_element_by_name("ayear").clear()
+        wd.find_element_by_name("ayear").send_keys(contact.byear)
+        wd.find_element_by_xpath("//div[@id='content']/form/input[20]").click()
 
     def edit_first_contact(self, contact):
         wd = self.app.wd
