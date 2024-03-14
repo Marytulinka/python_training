@@ -28,9 +28,7 @@ class ContactHelper:
         wd.find_element_by_name("nickname").clear()
         wd.find_element_by_name("nickname").send_keys(contact.nickname)
         # Photo
-        # wd.find_element_by_xpath("//input[@type='file']").click()
-        # wd.find_element_by_name("photo").clear()
-        # wd.find_element_by_xpath("//input[@type='file']").send_keys("C://Users//Mariya.Tulina//PycharmProjects//python_training//icon.jpg")
+        wd.find_element_by_name("photo").send_keys(contact.photo)
         # Company
         wd.find_element_by_name("company").click()
         wd.find_element_by_name("company").clear()
