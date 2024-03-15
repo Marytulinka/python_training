@@ -82,7 +82,7 @@ class ContactHelper:
         wd.find_element_by_name("ayear").send_keys(contact.byear)
         wd.find_element_by_xpath("//div[@id='content']/form/input[20]").click()
 
-    def edit_first_contact(self, contact):
+    def modify_first_contact(self, contact):
         wd = self.app.wd
         self.go_to_home_page()
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
@@ -107,3 +107,8 @@ class ContactHelper:
     def return_to_home_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("home page").click()
+
+    def count(self):
+        wd = self.app.wd
+        self.go_to_home_page()
+        return len(wd.find_elements_by_name("selected[]"))
