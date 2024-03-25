@@ -12,6 +12,7 @@ class ContactHelper:
         self.open_new_contact_page()
         self.fill_contact_form(contact)
         self.return_to_home_page()
+        self.group_cache = None
 
     def fill_contact_form(self, contact):
         wd = self.app.wd
@@ -90,12 +91,14 @@ class ContactHelper:
         self.fill_contact_form(contact)
         wd.find_element_by_name("update").click()
         self.return_to_home_page()
+        self.group_cache = None
 
     def del_first_contact(self):
         wd = self.app.wd
         self.go_to_home_page()
         wd.find_element_by_name("selected[]").click()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
+        self.group_cache = None
 
     def go_to_home_page(self):
         wd = self.app.wd
@@ -115,15 +118,18 @@ class ContactHelper:
         self.go_to_home_page()
         return len(wd.find_elements_by_name("selected[]"))
 
+    group_cache = None
+
     def get_contact_list(self):
-        wd = self.app.wd
-        self.go_to_home_page()
-        contacts = []
-        for element in wd.find_elements_by_css_selector("tr[name='entry']"):
-            id = element.find_element_by_name("selected[]").get_attribute("value")
-            last_name = element.find_elements_by_css_selector("td")[1].text
-            first_name = element.find_elements_by_css_selector("td")[2].text
-            contacts.append(Contact(id=id, firstname=first_name, lastname=last_name))
-        return contacts
+        if self.group_cache is None:
+            wd = self.app.wd
+            self.go_to_home_page()
+            self.group_cache = []
+            for element in wd.find_elements_by_css_selector("tr[name='entry']"):
+                id = element.find_element_by_name("selected[]").get_attribute("value")
+                last_name = element.find_elements_by_css_selector("td")[1].text
+                first_name = element.find_elements_by_css_selector("td")[2].text
+                self.group_cache.append(Contact(id=id, firstname=first_name, lastname=last_name))
+        return list(self.group_cache)
         
 
