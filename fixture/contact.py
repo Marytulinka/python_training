@@ -28,12 +28,12 @@ class ContactHelper:
         self.change_field_value("title", contact.title)
         self.change_field_value("address", contact.address)
         # Telephone
-        self.change_field_value("home", contact.homephone)
-        self.change_field_value("mobile", contact.mobilephone)
-        self.change_field_value("work", contact.workphone)
+        self.change_field_value("home", contact.home)
+        self.change_field_value("mobile", contact.mobile)
+        self.change_field_value("work", contact.work)
         self.change_field_value("fax", contact.fax)
         # email
-        self.change_field_value("email", contact.email1)
+        self.change_field_value("email", contact.email)
         self.change_field_value("email2", contact.email2)
         self.change_field_value("email3", contact.email3)
         self.change_field_value("homepage", contact.homepage)
@@ -44,6 +44,7 @@ class ContactHelper:
         self.change_date_value("aday", contact.aday)
         self.change_date_value("amonth", contact.amonth)
         self.change_field_value("ayear", contact.ayear)
+        wd.find_element_by_xpath("//div[@id='content']/form/input[20]").click()
 
     def change_field_value(self, field_name, text):
         wd = self.app.wd

@@ -8,7 +8,7 @@ def test_add_contact(app):
                                 "marytulina", "Test Company",
                                 "title", "Test test test", "", "7656567",
                                 "123456", "432156", "test1@test.com",
-                                "test2@test.com", "test3@test.com", "testcom.com",
+                                "test2@test.com", "test3@test.com", "",
                                 "19", "April", "1988", "19",
                                 "April", "2028")
     app.contact.create(contact)
